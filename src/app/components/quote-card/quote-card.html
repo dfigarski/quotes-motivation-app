@@ -1,12 +1,19 @@
 <div class="card">
+  <div class="card-top">
+    <span class="card-label">Cytat</span>
+    <span class="card-id">#{{ quote.id }}</span>
+  </div>
+
   <h3>{{ quote.author }}</h3>
-  <p>{{ quote.content }}</p>
+  <p class="quote-text">"{{ quote.content }}"</p>
 
   <button (click)="onClick()">
     {{ quote.expanded ? 'Ukryj szczegóły' : 'Pokaż szczegóły' }}
   </button>
 
   <div *ngIf="quote.expanded" class="details-box">
-    <p>ID: {{ quote.id }}</p>
+    <p><strong>ID:</strong> {{ quote.id }}</p>
+    <p><strong>Autor:</strong> {{ quote.author }}</p>
+    <p><strong>Status:</strong> Rozwinięty widok karty</p>
   </div>
 </div>

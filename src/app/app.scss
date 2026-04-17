@@ -2,24 +2,24 @@
   max-width: 900px;
   margin: 40px auto;
   padding: 24px;
-  background: #111;
-  color: #fff;
+  background: #111111;
+  color: white;
   border-radius: 16px;
 }
 
-h1 {
-  color: #ff3b3b;
-  text-align: center;
-}
-
-.description {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
 .author-box {
-  background: #1a1a1a;
+  background: #1b1b1b;
+  border: 1px solid #ff3b3b;
+  border-radius: 12px;
   padding: 16px;
-  border: 1px solid red;
-  border-radius: 10px;
+  margin-bottom: 24px;
+}
+
+.author-box h2 {
+  color: #ff3b3b;
+  margin-bottom: 10px;
+}
+
+.author-box p {
+  color: #ddd;
 }

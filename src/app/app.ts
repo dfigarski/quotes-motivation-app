@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Header } from './components/header/header';
 import { QuoteList } from './components/quote-list/quote-list';
@@ -7,7 +8,7 @@ import { ErrorMessage } from './components/error-message/error-message';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [Header, QuoteList, EmptyState, ErrorMessage],
+  imports: [CommonModule, Header, QuoteList, EmptyState, ErrorMessage],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
@@ -37,9 +38,7 @@ export class App {
 
   toggleQuote(id: number) {
     this.quotes = this.quotes.map((quote) =>
-      quote.id === id
-        ? { ...quote, expanded: !quote.expanded }
-        : quote
+      quote.id === id ? { ...quote, expanded: !quote.expanded } : quote
     );
   }
 }
