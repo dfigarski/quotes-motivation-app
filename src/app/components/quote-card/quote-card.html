@@ -1,1 +1,12 @@
-<p>quote-card works!</p>
+<div class="card">
+  <h3>{{ quote.author }}</h3>
+  <p>{{ quote.content }}</p>
+
+  <button (click)="onClick()">
+    {{ quote.expanded ? 'Ukryj szczegóły' : 'Pokaż szczegóły' }}
+  </button>
+
+  <div *ngIf="quote.expanded" class="details-box">
+    <p>ID: {{ quote.id }}</p>
+  </div>
+</div>

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-error-message',
-  imports: [],
+  standalone: true,
   templateUrl: './error-message.html',
   styleUrl: './error-message.scss',
 })

@@ -1,12 +1,19 @@
 <div class="app-container">
-  <h1>Motivational Quotes App</h1>
-  <p class="description">
-    Aplikacja do przeglądania motywacyjnych cytatów z możliwością oceny i późniejszego włączenia dark mode.
-  </p>
+  <app-header></app-header>
 
   <section class="author-box">
     <h2>O autorze projektu</h2>
     <p>Autor: Dominik Figarski</p>
-    <p>Projekt wykonany w Angular jako aplikacja do nauki komponentów i pracy z API.</p>
+    <p>Projekt wykonany w Angular.</p>
   </section>
+
+  <app-error-message *ngIf="hasError"></app-error-message>
+
+  <app-empty-state *ngIf="quotes.length === 0"></app-empty-state>
+
+  <app-quote-list
+    *ngIf="quotes.length > 0"
+    [quotes]="quotes"
+    (toggle)="toggleQuote($event)"
+  ></app-quote-list>
 </div>

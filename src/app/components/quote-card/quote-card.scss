@@ -1,0 +1,28 @@
+.card {
+  background: #1a1a1a;
+  border: 1px solid #ff3b3b;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.card h3 {
+  color: #ff3b3b;
+}
+
+.card button {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: #ff3b3b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.details-box {
+  margin-top: 12px;
+  padding: 12px;
+  background: #121212;
+  border-radius: 8px;
+}

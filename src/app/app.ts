@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
-import { QuoteListComponent } from './components/quote-list/quote-list';
+import { Header } from './components/header/header';
+import { QuoteList } from './components/quote-list/quote-list';
+import { EmptyState } from './components/empty-state/empty-state';
+import { ErrorMessage } from './components/error-message/error-message';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [QuoteListComponent],
+  imports: [Header, QuoteList, EmptyState, ErrorMessage],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
@@ -30,9 +33,13 @@ export class App {
     },
   ];
 
+  hasError = false;
+
   toggleQuote(id: number) {
-    this.quotes = this.quotes.map((q) =>
-      q.id === id ? { ...q, expanded: !q.expanded } : q
+    this.quotes = this.quotes.map((quote) =>
+      quote.id === id
+        ? { ...quote, expanded: !quote.expanded }
+        : quote
     );
   }
 }
