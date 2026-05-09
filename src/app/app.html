@@ -7,12 +7,16 @@
     <p>Projekt wykonany w Angular.</p>
   </section>
 
+  <div *ngIf="isLoading" class="loading-box">
+    <p>Ładowanie cytatów...</p>
+  </div>
+
   <app-error-message *ngIf="hasError"></app-error-message>
 
-  <app-empty-state *ngIf="quotes.length === 0"></app-empty-state>
+  <app-empty-state *ngIf="isEmpty"></app-empty-state>
 
   <app-quote-list
-    *ngIf="quotes.length > 0"
+    *ngIf="!isLoading && !hasError && quotes.length > 0"
     [quotes]="quotes"
     (toggle)="toggleQuote($event)"
   ></app-quote-list>

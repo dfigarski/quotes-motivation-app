@@ -1,9 +1,32 @@
-h1 {
-  color: #ff3b3b;
+.header {
   text-align: center;
+  margin-bottom: 32px;
+  padding: 16px 10px 8px;
 }
 
-.description {
-  text-align: center;
-  margin-bottom: 20px;
+.header-badge {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 59, 59, 0.12);
+  border: 1px solid rgba(255, 59, 59, 0.35);
+  color: #ff6b6b;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.header h1 {
+  margin: 0 0 12px 0;
+  font-size: 40px;
+  color: #ff3b3b;
+}
+
+.header p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #cfcfcf;
+  font-size: 16px;
 }

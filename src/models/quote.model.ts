@@ -4,3 +4,6 @@ export interface Quote {
   author: string;
   expanded?: boolean;
 }
+
+export type QuoteCreateDto = Omit<Quote, 'id' | 'expanded'>;
+export type QuoteUpdateDto = Partial<QuoteCreateDto>;

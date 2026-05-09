@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Header } from './components/header/header';
 import { QuoteList } from './components/quote-list/quote-list';
 import { EmptyState } from './components/empty-state/empty-state';
 import { ErrorMessage } from './components/error-message/error-message';
+import { QuoteService } from './services/quote.service';
+import { Quote } from '.app/models/quote.model';
 
 @Component({
   selector: 'app-root',
@@ -12,31 +14,38 @@ import { ErrorMessage } from './components/error-message/error-message';
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
-export class App {
-  quotes = [
-    {
-      id: 1,
-      content: 'Success is the sum of small efforts.',
-      author: 'Robert Collier',
-      expanded: false,
-    },
-    {
-      id: 2,
-      content: 'Do not wait. The time will never be just right.',
-      author: 'Napoleon Hill',
-      expanded: false,
-    },
-    {
-      id: 3,
-      content: 'Believe you can and you are halfway there.',
-      author: 'Roosevelt',
-      expanded: false,
-    },
-  ];
+export class App implements OnInit {
+  private quoteService = inject(QuoteService);
 
+  quotes: Quote[] = [];
+  isLoading = false;
   hasError = false;
 
-  toggleQuote(id: number) {
+  get isEmpty(): boolean {
+    return !this.isLoading && !this.hasError && this.quotes.length === 0;
+  }
+
+  ngOnInit(): void {
+    this.loadQuotes();
+  }
+
+  loadQuotes(): void {
+    this.isLoading = true;
+    this.hasError = false;
+
+    this.quoteService.getAll().subscribe({
+      next: (data) => {
+        this.quotes = data.map((q) => ({ ...q, expanded: false }));
+        this.isLoading = false;
+      },
+      error: () => {
+        this.hasError = true;
+        this.isLoading = false;
+      },
+    });
+  }
+
+  toggleQuote(id: number): void {
     this.quotes = this.quotes.map((quote) =>
       quote.id === id ? { ...quote, expanded: !quote.expanded } : quote
     );
