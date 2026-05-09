@@ -1,19 +1,7 @@
 {
-  "quotes": [                          // tablica wszystkich cytatów
-    {
-      "id": 1,                         // unikalny numer cytatu
-      "content": "Success is the sum of small efforts.",  // treść cytatu
-      "author": "Robert Collier"       // autor cytatu
-    },
-    {
-      "id": 2,
-      "content": "Do not wait. The time will never be just right.",
-      "author": "Napoleon Hill"
-    },
-    {
-      "id": 3,
-      "content": "Believe you can and you are halfway there.",
-      "author": "Theodore Roosevelt"
-    }
+  "quotes": [
+    { "id": 1, "content": "Success is the sum of small efforts.", "author": "Robert Collier" },
+    { "id": 2, "content": "Do not wait. The time will never be just right.", "author": "Napoleon Hill" },
+    { "id": 3, "content": "Believe you can and you are halfway there.", "author": "Theodore Roosevelt" }
   ]
 }
