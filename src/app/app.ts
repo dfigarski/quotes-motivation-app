@@ -5,7 +5,7 @@ import { QuoteList } from './components/quote-list/quote-list';
 import { EmptyState } from './components/empty-state/empty-state';
 import { ErrorMessage } from './components/error-message/error-message';
 import { QuoteService } from './services/quote.service';
-import { Quote } from '.app/models/quote.model';
+import { Quote } from './models/quote.model';
 
 @Component({
   selector: 'app-root',
